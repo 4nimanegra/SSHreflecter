@@ -26,31 +26,31 @@
 	https://www.python.org/
 	https://github.com/paramiko/
 
- The basic program is:
-#
-#	SSHreflecter.py
-#
- in order to make an ssh rsa key the user have to execute on the shell in linux:
-#
-#	ssh-keygen -t rsa -N "" -f RSA_key_file
-#
- The command mus be executed by the following way:
-#
-#	python SSHreflecter.py path_to_rsa_key_file
-#
-# The program starts and as new connections tries to log the server will reflect the atack to the atacket
-# in order to know if the credentials succesfully logs on the atacker. If this happend, the IP address, the 
-# user and the password will be shown on screen.
-#
-#
- An alternative program is presented too:
-#
-#	SSHreflecterDBgen.py
-#
- The command has to be executed like the previous one:
-#
-#	python SSHreflecterDBgen.py path_to_rsa_key_file
-#
-# The program will start to show all the users and password on stdout. The program will remains passive and
-# will not try to log into the remote hosts.
-#
+# The basic program is:
+
+	SSHreflecter.py
+
+# in order to make an ssh rsa key the user have to execute on the shell in linux:
+
+	ssh-keygen -t rsa -N "" -f RSA_key_file
+
+# The command mus be executed by the following way:
+
+	python SSHreflecter.py path_to_rsa_key_file
+
+ The program starts and as new connections tries to log the server will reflect the atack to the atacket
+ in order to know if the credentials succesfully logs on the atacker. If this happend, the IP address, the 
+ user and the password will be shown on screen.
+
+
+# An alternative program is presented too:
+
+	SSHreflecterDBgen.py
+
+# The command has to be executed like the previous one:
+
+	python SSHreflecterDBgen.py path_to_rsa_key_file
+
+ The program will start to show all the users and password on stdout. The program will remains passive and
+ will not try to log into the remote hosts.
+
