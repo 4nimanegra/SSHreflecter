@@ -71,7 +71,7 @@ if len(sys.argv)==2:
 
 			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-			sock.bind(('', 2200))
+			sock.bind(('', 22))
 
 		except Exception as e:
 

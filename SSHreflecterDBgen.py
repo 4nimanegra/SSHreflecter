@@ -18,7 +18,7 @@ class Server (paramiko.ServerInterface):
 		self.addr=addr
 
 	def check_auth_password(self, user, password):
-		print(self.addr+':'+user+':'+password)
+		print(user+':'+password)
 		return paramiko.AUTH_FAILED
 	def get_allowed_auths(self, username):
 		return 'password' 
@@ -57,7 +57,7 @@ if len(sys.argv)==2:
 
 			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-			sock.bind(('', 2200))
+			sock.bind(('', 22))
 
 		except Exception as e:
 
@@ -93,13 +93,11 @@ if len(sys.argv)==2:
 
 					except paramiko.SSHException:
 
-						print('Error: Bad negotiation.')
 						exit
 
 					chan = t.accept(20)
 
 				except Exception as e:
-					print('Problem detected.')
 					exit
 
 		except:
