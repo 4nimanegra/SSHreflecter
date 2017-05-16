@@ -19,7 +19,7 @@ class Server (paramiko.ServerInterface):
 		self.addr=addr;
 
 	def check_auth_password(self, user, password):
-		print(str(time.time())+":".self.addr+":"+user+':'+password);
+		print(str(time.time())+":"+self.addr+":"+user+':'+password);
 		return paramiko.AUTH_FAILED;
 	def get_allowed_auths(self, username):
 		return 'password';
