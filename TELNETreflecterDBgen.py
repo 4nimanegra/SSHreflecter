@@ -48,11 +48,13 @@ try:
 			user=str(user);
 
 			if len(user) > 0:
-	
-				user=user[:-1];
 
-				if user[0]==0xFF:
-					print("Tesiria jump");
+				if user[len(user)-1] == '\n':	
+					user=user[:-1];
+				if user[len(user)-1] == '\r':
+					user=user[:-1];
+
+				if user[0]==chr(0xFF):
 					continue;
 
 				if len(user) > 1:
@@ -62,7 +64,10 @@ try:
 						if user[len(user)-1] == '\r':
 							user=user[:-1];
 						password=str(password);
-						password=password[:-1];
+						if password[len(password)-1] == '\r':
+							password=password[:-1];
+						if password[len(password)-1] == '\n':
+							password=password[:-1];
 
 				if len(password) > 1:
 					if password[len(password)-1] == '\r':
@@ -71,12 +76,10 @@ try:
 			print(str(time.time())+":"+str(addr[0])+":"+user+":"+password);
 		except socket.error:
 			connection.close();
-		except Exception as e:
-			print(str(e));
+		except:
 			connection.close();
 			mysocket.close();
 			sys.exit();
 
-except Exception as e:
-	print(str(e));	
+except:
 	mysocket.close();

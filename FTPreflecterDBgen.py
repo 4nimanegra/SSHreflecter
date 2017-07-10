@@ -43,19 +43,24 @@ try:
 
 			connection.close();
 			user=str(user);
-			user=user[5:];
-			user=user[:-1];
 
-			if user[len(user)-1] == '\r':
+			if len(user) > 5:
+				user=user[5:];
 				user=user[:-1];
-			password=str(password);
-			password=password[5:];
-			password=password[:-1];
 
-			if password[len(password)-1] == '\r':
-				password=password[:-1];
-	
-			print(str(time.time())+":"+str(addr[0])+":"+user+":"+password);
+				if user[len(user)-1] == '\r':
+					user=user[:-1];
+				password=str(password);
+
+				if len(password) > 5:
+
+					password=password[5:];
+					password=password[:-1];
+
+					if password[len(password)-1] == '\r':
+						password=password[:-1];
+			
+					print(str(time.time())+":"+str(addr[0])+":"+user+":"+password);
 		except socket.error:
 			connection.close();
 		except:

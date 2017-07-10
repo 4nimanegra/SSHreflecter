@@ -99,17 +99,17 @@ if len(sys.argv)>=2:
 						t.local_version = 'SSH-2.0-OpenSSH_6.6.1';
 						t.start_server(server=server);
 
-					except paramiko.SSHException:
-
-						sys.exit();
+					except paramiko.SSHException as e:
+						print(str(e));
+						continue;
 
 					chan = t.accept(20);
 
 				except Exception as e:
-					sys.exit();
-
-		except:
-
+					chan="";
+		except Exception as e:
+			print("lalala3");
+			print(str(e));
 			sys.exit();
 
 else:
